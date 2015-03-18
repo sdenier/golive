@@ -1,0 +1,21 @@
+{
+  "author": "sdenier",
+  "name": "golive",
+  "description": "Live results for non-interactive display",
+  "version": "0.1.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "brunch watch --server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "javascript-brunch": "^1.7.1",
+    "less-brunch": "^1.8.1"
+  },
+  "main": "public/index.html",
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+{
+    "name": "golive",
+    "version": "0.1.0",
+    "main": "public/javascripts/app.js",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+        "lodash": "~2"
+    }
+}
