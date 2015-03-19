@@ -11,7 +11,10 @@
   "scripts": {
     "start": "brunch watch --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.12.3",
+    "morgan": "^1.5.2"
+  },
   "devDependencies": {
     "javascript-brunch": "^1.7.1",
     "less-brunch": "^1.8.1"

@@ -10,6 +10,10 @@ module.exports = {
       stylesheets: {
         joinTo: 'app.css'
       }
+    },
+    server: {
+      path: 'server.js',
+      run: 'yes'
     }
   }
 }
