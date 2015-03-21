@@ -29,20 +29,21 @@
                 <div>{{ course.name }}</div>
                 <div>{{ course.finishedCount }} / {{ course.presentCount }}</div>                
             </div>
-            <div class="course-runners">
-                <div class="runners-ranked">
-                    <div ng-repeat="runner in course.rankedRunners track by runner.startId" class="runner-ranked">
-                        <span>{{ runner.rank }}</span>
-                        <span>{{ runner.firstname }} {{ runner.lastname }}</span>
-                        <span>{{ runner.finishTime | date:'H:mm:ss' }}</span>
+            <div class="course-results">
+                <div class="course-runners">
+                    <div class="runners-ranked">
+                        <div ng-repeat="runner in course.rankedRunners" class="runner-ranked">
+                            <span>{{ runner.rank }}</span>
+                            <span>{{ runner.firstname }} {{ runner.lastname }}</span>
+                            <span>{{ runner.finishTime | date:'H:mm:ss' }}</span>
+                        </div>
                     </div>
-                </div>
-                <hr>
-                <div class="runners-unranked">
-                    <div ng-repeat="runner in course.unrankedRunners track by runner.startId" class="runner-unranked">
-                        <span></span>
-                        <span>{{ runner.firstname }} {{ runner.lastname }}</span>
-                        <span>{{ runner.status }}</span>
+                    <hr>
+                    <div class="runners-unranked">
+                        <div ng-repeat="runner in course.unrankedRunners track by runner.startId" class="runner-unranked">
+                            <span>{{ runner.firstname }} {{ runner.lastname }}</span>
+                            <span>{{ runner.status }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
