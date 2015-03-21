@@ -14,9 +14,9 @@ exports.startServer = function startServer(port, path, callback) {
   app.use(express.static(Path.join(__dirname, 'data')));
   app.use(logger('dev'));
 
-  app.get('/results', function(req, res) {
-    res.json(require('./data/osplitsdata.json'));
-  });
+  // app.get('/results', function(req, res) {
+  //   res.json(require('./data/lastresults.json'));
+  // });
 
   server.listen(port, callback);
 };
