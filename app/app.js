@@ -24,7 +24,7 @@ var App = {
 
       var polling;
       $scope.start = function() {
-        polling = $interval(pollData, 5000);
+        polling = $interval(pollData, 10000);
         $scope.pollingStatus = 'Running';
       };
 
@@ -33,6 +33,30 @@ var App = {
         $scope.pollingStatus = 'Stopped';
       };
 
+    })
+    .directive('glAutoScroll', function($interval) {
+      return {
+        restrict: 'A',
+        scope: {},
+        link: function(scope, element) {
+          var scrolling = $interval(function() {
+            var scrollTop = element[0].scrollTop,
+                scrollHeight = element[0].scrollHeight,
+                clientHeight = element[0].clientHeight;
+
+            if (scrollTop + clientHeight >= scrollHeight) {
+              element[0].scrollTop = 0;
+            } else {
+              element[0].scrollTop = scrollTop + 100;
+            }
+            console.log(element[0].scrollTop, element[0].scrollTop + clientHeight, scrollHeight);
+          }, 5000);
+
+          scope.$on('$destroy', function() {
+            $interval.cancel(scrolling);
+          });
+        }
+      };
     });
   }
 };
