@@ -2,12 +2,22 @@
 
 var App = {
   init: function init() {
-    angular.module('golive', []).controller('MainCtrl', function($scope, $http, $interval) {
+    angular.module('golive', [])
+    .constant('glConstants', {
+      pollInterval: 20000,
+      scroll: {
+        step: 100,
+        interval: 5000,
+        animation: 500
+      }
+    })
+    .controller('MainCtrl', function($scope, $http, $interval, glConstants) {
 
       function pollData() {
         var previousStatus = $scope.pollingStatus;
         $scope.pollingStatus = 'Polling';
         $http.get('/lastresults.json').success(function(data) {
+          console.log('new results');
           $scope.lastTime = data.lastTime;
           $scope.stageName = data.name;
           $scope.courses = data.courses;
@@ -24,7 +34,7 @@ var App = {
 
       var polling;
       $scope.start = function() {
-        polling = $interval(pollData, 10000);
+        polling = $interval(pollData, glConstants.pollInterval);
         $scope.pollingStatus = 'Running';
       };
 
@@ -34,7 +44,7 @@ var App = {
       };
 
     })
-    .directive('glAutoScroll', function($interval) {
+    .directive('glAutoScroll', function($interval, glConstants) {
       return {
         restrict: 'A',
         scope: {},
@@ -42,15 +52,14 @@ var App = {
           var scrolling = $interval(function() {
             var scrollTop = element[0].scrollTop,
                 scrollHeight = element[0].scrollHeight,
-                clientHeight = element[0].clientHeight;
+                clientHeight = element[0].clientHeight,
+                atEnd = scrollTop + clientHeight >= scrollHeight,
+                newScrollTop = atEnd ? 0 : scrollTop + glConstants.scroll.step;
 
-            if (scrollTop + clientHeight >= scrollHeight) {
-              element[0].scrollTop = 0;
-            } else {
-              element[0].scrollTop = scrollTop + 100;
-            }
-            console.log(element[0].scrollTop, element[0].scrollTop + clientHeight, scrollHeight);
-          }, 5000);
+            $(element).animate({
+              scrollTop: newScrollTop
+            }, glConstants.scroll.animation);
+          }, glConstants.scroll.interval);
 
           scope.$on('$destroy', function() {
             $interval.cancel(scrolling);

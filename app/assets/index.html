@@ -27,7 +27,7 @@
         <div ng-repeat="course in courses" class="course">
             <div class="course-info">
                 <div>{{ course.name }}</div>
-                <div>{{ course.finishedCount }} / {{ course.presentCount }}</div>                
+                <div>{{ course.finishedCount }} / {{ course.presentCount }} ({{ course.rankedRunners.length }})</div>                
             </div>
             <div class="course-results">
                 <div class="course-runners" gl-auto-scroll>

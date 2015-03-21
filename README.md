@@ -3,11 +3,9 @@
 ## Todos
 
 ### GoLive
-- GoLive: poll json ($interval)
-- GoLive: display results
-- GoLive: autoscroll
 - GoLive: multiple column display
 - GoLive: configuration
+- don't poll unless all columns have at least one full pass
 
 - foundation? as external lib
 - plugins Brunch (minifier...)
