@@ -1,16 +1,23 @@
 # GoLive
 
-## Todos
+Small Angular app for non-interactive display of live results:
 
-### GoLive
-- GoLive: multiple column display
-- GoLive: configuration
-- don't poll unless all columns have at least one full pass
+- poll results in json format and refresh
+- display each course/set in a column
+- autoscroll each column so that all data have a chance to show
 
-- foundation? as external lib
+### Todos
+
+**GoLive**
+- multiple column display with foundation
+- configuration (columns, automatic number of columns?)
+- automatic detection of new/recent results + highlight
+- special headup component with only new/recent results
+- don't poll/refresh results unless all columns have at least one full pass
 - plugins Brunch (minifier...)
 
-### Geco
+
+**Geco**
 
 - generate valid json (json serializer/mustache hack)
 - deprecate current gecolive
