@@ -19,8 +19,10 @@
         <header>
             <h1>GoLive {{ stageName }}</h1>
             <div>Derniers résultats {{ lastTime | date:'H:mm:ss' }}</div>
+            <button ng-click="refresh()">Refresh</button>
             <button ng-click="start()">Start</button>
             <button ng-click="stop()">Stop</button>
+            <span>{{ pollingStatus }}</span>
         </header>
         <div ng-repeat="course in courses" class="course">
             <div class="course-info">
