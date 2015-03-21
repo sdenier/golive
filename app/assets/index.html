@@ -30,7 +30,7 @@
                 <div>{{ course.finishedCount }} / {{ course.presentCount }} ({{ course.rankedRunners.length }})</div>                
             </div>
             <div class="course-results">
-                <div class="course-runners" gl-auto-scroll>
+                <div class="course-runners" gl-auto-scroll="$index">
                     <div class="runners-ranked">
                         <div ng-repeat="runner in course.rankedRunners" class="runner-ranked">
                             <span>{{ runner.rank }}</span>
