@@ -15,10 +15,36 @@
         <link rel="stylesheet" href="app.css">
     </head>
 
-    <body ng-controller="MainCtrl">
-        <h1>GoLive</h1>
-        
-        <div ng-repeat="course in courses">{{ course }}</div>
+    <body ng-controller="MainCtrl" ng-cloak>
+        <header>
+            <h1>GoLive {{ stageName }}</h1>
+            <div>Derniers résultats {{ lastTime | date:'H:mm:ss' }}</div>
+            <button ng-click="start()">Start</button>
+            <button ng-click="stop()">Stop</button>
+        </header>
+        <div ng-repeat="course in courses" class="course">
+            <div class="course-info">
+                <div>{{ course.name }}</div>
+                <div>{{ course.finishedCount }} / {{ course.presentCount }}</div>                
+            </div>
+            <div class="course-runners">
+                <div class="runners-ranked">
+                    <div ng-repeat="runner in course.rankedRunners track by runner.startId" class="runner-ranked">
+                        <span>{{ runner.rank }}</span>
+                        <span>{{ runner.firstname }} {{ runner.lastname }}</span>
+                        <span>{{ runner.finishTime | date:'H:mm:ss' }}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="runners-unranked">
+                    <div ng-repeat="runner in course.unrankedRunners track by runner.startId" class="runner-unranked">
+                        <span></span>
+                        <span>{{ runner.firstname }} {{ runner.lastname }}</span>
+                        <span>{{ runner.status }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="vendor.js"></script>
         <script src="app.js"></script>
