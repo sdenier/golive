@@ -9,21 +9,72 @@
   </head>
 
   <body ng-controller="MainCtrl" ng-cloak>
-    <header>
-      <h1>{{ stageName }}</h1>
-      <div>Derniers résultats {{ lastTime | date:'H:mm:ss' }}</div>
-      <button ng-click="refresh()">Refresh</button>
-      <button ng-click="start()">Start</button>
-      <button ng-click="stop()">Stop</button>
-      <span>{{ pollingStatus }}</span>
-      <span class="label"><i class="fi fi-widget"></i></span>
-      <span class="label secondary"><i class="fi fi-wrench"></i></span>
-      <span class="label success radius"><i class="fi fi-play"></i></span>
-      <span class="label alert round"><i class="fi fi-stop"></i></span>
-      <i class="fi fi-refresh"></i>
-      <i class="fi fi-x"></i>
-      <i class="fi fi-plus"></i>
+    <header class="row">
+      <div class="small-5 columns collapse">
+        <h4 class="subheader">{{ stageName }}</h4>
+      </div>
+      <div class="small-5 columns">
+        <h4>Résultats {{ lastTime | date:'H:mm:ss' }}</h4>
+      </div>
+      <div class="small-1 columns">
+        <a ng-click="configHidden = !configHidden"><i class="fi fi-widget"></i></a>
+      </div>
     </header>
+    <div class="row" ng-hide="configHidden">
+      <div class="small-12 columns">
+        <div class="panel config">
+          <div class="row config-source">
+            <div class="small-2 columns">
+              <label for="config-data-source" class="right inline">Source de données :</label>
+            </div>
+            <div class="small-2 columns">
+              <input id="config-data-source" type="text">
+            </div>
+            <div class="small-2 columns">
+              <label for="config-data-poll" class="right inline">Rechargement :</label>
+            </div>
+            <div class="small-1 columns">
+              <input id="config-data-poll" type="number">
+            </div>
+            <div class="small-2 columns">
+              <label class="right inline">Status : {{ pollingStatus }}</label>
+            </div>
+            <div class="small-3 columns">
+              <div class="row">
+                <div class="small-12 columns">
+                  <a ng-click="start()" class="label success radius"><i class="fi fi-play"></i></a>
+                  &nbsp;
+                  <a ng-click="stop()" class="label alert radius"><i class="fi fi-stop"></i></a>
+                  &nbsp;
+                  <a ng-click="refresh()" class="label radius"><i class="fi fi-refresh"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- .config-source -->
+          <div class="row config-scrolling">
+            <div class="small-2 columns">
+              <label for="config-scroll-interval" class="right inline">Scrolling auto :</label>
+            </div>
+            <div class="small-1 columns">
+              <input id="config-scroll-interval" type="number">
+            </div>
+            <div class="small-1 columns">&nbsp;</div>
+            <div class="small-2 columns">
+              <label for="config-scroll-step" class="right inline">Scrolling step :</label>
+            </div>
+            <div class="small-1 columns">
+              <input id="config-scroll-step" type="number">
+            </div>
+            <div class="small-2 columns">
+              <label for="config-scroll-animation" class="right inline">Animation :</label>
+            </div>
+            <div class="small-1 columns end">
+              <input id="config-scroll-animation" type="number">
+            </div>
+          </div><!-- .config-scrolling -->
+        </div>
+      </div>
+    </div>
     <div ng-repeat="result in results track by result.name" class="result">
       <div class="result-info">
         <div>{{ result.name }}</div>
