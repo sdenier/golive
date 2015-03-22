@@ -2,11 +2,6 @@
 
 angular.module('golive', [])
   .value('config', {
-    dataSource: {
-      url: '/lastresults.json',
-      pollInterval: 30,
-      status: 'stopped'
-    },
     scrolling: {
       step: 200,
       interval: 5,
