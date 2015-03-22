@@ -16,6 +16,7 @@
     "morgan": "^1.5.2"
   },
   "devDependencies": {
+    "auto-reload-brunch": "^1.7.8",
     "javascript-brunch": "^1.7.1",
     "less-brunch": "^1.8.1"
   },
