@@ -56,8 +56,8 @@
       </div>
     </div><!-- .config-scrolling -->
     <div class="row config-columns">
-      <div class="small-3 columns" ng-repeat="r in results" ng-class="{end: $last}">
-        <select ng-model="columnResults[$index]" ng-options="result.name for result in results track by result.name">
+      <div class="small-3 columns" ng-repeat="r in resultNames()" ng-class="{end: $last}">
+        <select ng-model="columnSelectors[$index]" ng-options="result for result in resultNames()">
           <option value="">---</option>
         </select>
       </div>

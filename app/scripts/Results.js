@@ -7,7 +7,7 @@ angular.module('golive')
   .factory('Results', function Results($http, $interval, dataSource) {
 
     var stage = {},
-        results = [];
+        results = {};
     var polling;
 
     function pollData() {
@@ -16,18 +16,18 @@ angular.module('golive')
       $http.get(dataSource.url).success(function(data) {
         stage.lastTime = data.lastTime;
         stage.name = data.name;
-        results = data.results;
+        data.results.forEach(function(result) {
+          results[result.name] = result;
+        })
         dataSource.status = previousStatus;
       });
     }
 
     return {
-      stage: {},
-      resultNames: function() {
+      stage: stage,
+      results: results,
+      names: function() {
         return _.pluck(results, 'name');
-      },
-      findResult: function(name) {
-        return results.findWhere({name: name});
       },
       refresh: function() {
         pollData();

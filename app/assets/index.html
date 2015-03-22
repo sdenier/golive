@@ -12,10 +12,10 @@
 
     <header class="row">
       <div class="small-5 columns collapse">
-        <h3 class="subheader">{{ stageName }}</h3>
+        <h3 class="subheader">{{ stage.name }}</h3>
       </div>
       <div class="small-5 columns">
-        <h3>Résultats {{ lastTime | date:'H:mm:ss' }}</h3>
+        <h3>Résultats {{ stage.lastTime | date:'H:mm:ss' }}</h3>
       </div>
       <div class="small-1 columns">
         <a ng-click="configHidden = !configHidden" class="label secondary"><i class="fi fi-widget"></i></a>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="row fullwidth">
-      <div ng-repeat="result in columnResults track by result.name" class="small-3 columns result" ng-class="{end: $last}">
+      <div ng-repeat="result in columnResults() track by result.name" class="small-3 columns result" ng-class="{end: $last}">
         <div class="row result-info">
           <h2 class="small-7 columns">{{ result.name }}</h2>
           <h2 class="small-5 columns subheader text-right">{{ result.finishCount }} / {{ result.presentCount }}</h2>
