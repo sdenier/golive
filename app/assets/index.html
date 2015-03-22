@@ -25,12 +25,12 @@
       </div>
     </header>
 
-    <div class="config-container" ng-show="configHidden">
+    <div class="config-container" ng-hide="configHidden">
       <ng-include src="'views/config.html'"></ng-include>
     </div>
 
     <div class="row fullwidth">
-      <div ng-repeat="result in results track by result.name" class="small-3 columns result">
+      <div ng-repeat="result in columnResults track by result.name" class="small-3 columns result">
         <div class="row result-info">
           <h2 class="small-7 columns">{{ result.name }}</h2>
           <h2 class="small-5 columns subheader text-right">{{ result.finishCount }} / {{ result.presentCount }}</h2>

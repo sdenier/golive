@@ -77,13 +77,10 @@
     </div><!-- .config-columns-headers -->
     <div class="row config-columns-1">
       <div class="small-2 columns">
-        <select ng-model="col1" ng-options="result.name for result in results">
-        </select>
+        <select ng-model="columnResults[0]" ng-options="result.name for result in results track by result.name"></select>
       </div>
       <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
+        <select ng-model="columnResults[1]" ng-options="result.name for result in results track by result.name"></select>
       </div>
       <div class="small-2 columns">
         <select>
