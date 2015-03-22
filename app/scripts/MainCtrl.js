@@ -15,7 +15,9 @@ angular.module('golive')
     $scope.dataSource = dataSource;
     $scope.columnSelectors = [];
 
-    Results.refresh();
+    Results.refresh().then(function() {
+      $scope.columnSelectors = Results.names();
+    });
 
     $scope.resultNames = function() {
       return Results.names();

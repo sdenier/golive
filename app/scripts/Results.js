@@ -13,7 +13,7 @@ angular.module('golive')
     function pollData() {
       var previousStatus = dataSource.status;
       dataSource.status = 'polling';
-      $http.get(dataSource.url).success(function(data) {
+      return $http.get(dataSource.url).success(function(data) {
         stage.lastTime = data.lastTime;
         stage.name = data.name;
         data.results.forEach(function(result) {
@@ -30,7 +30,7 @@ angular.module('golive')
         return _.pluck(results, 'name');
       },
       refresh: function() {
-        pollData();
+        return pollData();
       },
       startPolling: function() {
         if (!polling) {
