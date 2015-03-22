@@ -4,7 +4,7 @@ var App = {
   init: function init() {
     angular.module('golive', [])
     .constant('glConstants', {
-      pollInterval: 20000,
+      pollInterval: 30000,
       scroll: {
         step: 100,
         interval: 5000,
@@ -20,7 +20,7 @@ var App = {
           console.log('new results');
           $scope.lastTime = data.lastTime;
           $scope.stageName = data.name;
-          $scope.courses = data.courses;
+          $scope.courses = data.results;
           $scope.pollingStatus = previousStatus;
         });
       }

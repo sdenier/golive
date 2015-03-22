@@ -27,21 +27,21 @@
         <div ng-repeat="course in courses" class="course">
             <div class="course-info">
                 <div>{{ course.name }}</div>
-                <div>{{ course.finishedCount }} / {{ course.presentCount }} ({{ course.rankedRunners.length }})</div>                
+                <div>{{ course.finishCount }} / {{ course.presentCount }}</div>
             </div>
             <div class="course-results">
                 <div class="course-runners" gl-auto-scroll="$index">
                     <div class="runners-ranked">
-                        <div ng-repeat="runner in course.rankedRunners" class="runner-ranked">
+                        <div ng-repeat="runner in course.rankedRunners track by runner.id" class="runner-ranked">
                             <span>{{ runner.rank }}</span>
-                            <span>{{ runner.firstname }} {{ runner.lastname }}</span>
-                            <span>{{ runner.finishTime | date:'H:mm:ss' }}</span>
+                            <span>{{ runner.firstName }} {{ runner.lastName }}</span>
+                            <span>{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</span>
                         </div>
                     </div>
                     <hr>
                     <div class="runners-unranked">
-                        <div ng-repeat="runner in course.unrankedRunners" class="runner-unranked">
-                            <span>{{ runner.firstname }} {{ runner.lastname }}</span>
+                        <div ng-repeat="runner in course.unrankedRunners track by runner.id" class="runner-unranked">
+                            <span>{{ runner.firstName }} {{ runner.lastName }}</span>
                             <span>{{ runner.status }}</span>
                         </div>
                     </div>

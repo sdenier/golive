@@ -9,6 +9,7 @@ Small Angular app for non-interactive display of live results:
 ### Todos
 
 **GoLive**
+
 - multiple column display with foundation
 - configuration (columns, automatic number of columns?)
 - automatic detection of new/recent results + highlight
@@ -19,6 +20,5 @@ Small Angular app for non-interactive display of live results:
 
 **Geco**
 
-- generate valid json (json serializer/mustache hack)
 - deprecate current gecolive
 - replace with a Spark server
