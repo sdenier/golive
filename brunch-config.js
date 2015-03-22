@@ -1,5 +1,9 @@
 module.exports = {
   config: {
+    modules: {
+      definition: false,
+      wrapper: false
+    },
     files: {
       javascripts: {
         joinTo: {
@@ -17,4 +21,3 @@ module.exports = {
     }
   }
 }
- 
