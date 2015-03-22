@@ -12,7 +12,10 @@ module.exports = {
         }
       },
       stylesheets: {
-        joinTo: 'app.css'
+        joinTo: {
+          'app.css': /^app/, 
+          'vendor.css': /^vendor/
+        }
       }
     },
     server: {
