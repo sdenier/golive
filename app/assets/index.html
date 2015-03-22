@@ -17,7 +17,7 @@
         <h4>Résultats {{ lastTime | date:'H:mm:ss' }}</h4>
       </div>
       <div class="small-1 columns">
-        <a ng-click="configHidden = !configHidden"><i class="fi fi-widget"></i></a>
+        <a ng-click="configHidden = !configHidden" class="label secondary"><i class="fi fi-widget"></i></a>
       </div>
     </header>
     <div class="row" ng-hide="configHidden">
@@ -28,16 +28,16 @@
               <label for="config-data-source" class="right inline">Source de données :</label>
             </div>
             <div class="small-2 columns">
-              <input id="config-data-source" type="text">
+              <input id="config-data-source" ng-model="dataSource.url" type="text">
             </div>
             <div class="small-2 columns">
               <label for="config-data-poll" class="right inline">Rechargement :</label>
             </div>
             <div class="small-1 columns">
-              <input id="config-data-poll" type="number">
+              <input id="config-data-poll" ng-model="dataSource.pollInterval" type="number">
             </div>
             <div class="small-2 columns">
-              <label class="right inline">Status : {{ pollingStatus }}</label>
+              <label class="right inline">Status : {{ dataSource.status }}</label>
             </div>
             <div class="small-3 columns">
               <div class="row">
@@ -56,20 +56,20 @@
               <label for="config-scroll-interval" class="right inline">Scrolling auto :</label>
             </div>
             <div class="small-1 columns">
-              <input id="config-scroll-interval" type="number">
+              <input id="config-scroll-interval" ng-model="scrolling.interval" type="number" disabled>
             </div>
             <div class="small-1 columns">&nbsp;</div>
             <div class="small-2 columns">
               <label for="config-scroll-step" class="right inline">Scrolling step :</label>
             </div>
             <div class="small-1 columns">
-              <input id="config-scroll-step" type="number">
+              <input id="config-scroll-step" ng-model="scrolling.step" type="number">
             </div>
             <div class="small-2 columns">
               <label for="config-scroll-animation" class="right inline">Animation :</label>
             </div>
             <div class="small-1 columns">
-              <input id="config-scroll-animation" type="number">
+              <input id="config-scroll-animation" ng-model="scrolling.animation" type="number">
             </div>
             <div class="small-1 columns">
               <label for="config-banner-enabled" class="right inline">Bandeau</label>

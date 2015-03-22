@@ -1,34 +1,35 @@
 angular.module('golive')
-  .controller('MainCtrl', function($scope, $http, $interval, glConstants) {
+  .controller('MainCtrl', function($scope, $http, $interval, config) {
+
+    $scope.dataSource = config.dataSource;
+    $scope.scrolling = config.scrolling;
 
     function pollData() {
-      var previousStatus = $scope.pollingStatus;
-      $scope.pollingStatus = 'Polling';
-      $http.get('/lastresults.json').success(function(data) {
-        console.log('new results');
+      var previousStatus = config.dataSource.status;
+      config.dataSource.status = 'polling';
+      $http.get(config.dataSource.url).success(function(data) {
         $scope.lastTime = data.lastTime;
         $scope.stageName = data.name;
         $scope.results = data.results;
-        $scope.pollingStatus = previousStatus;
+        config.dataSource.status = previousStatus;
       });
     }
 
-    $scope.pollingStatus = 'Stopped';
+    pollData();
 
     $scope.refresh = function() {
       pollData();
     };
-    pollData();
 
     var polling;
     $scope.start = function() {
-      polling = $interval(pollData, glConstants.pollInterval);
-      $scope.pollingStatus = 'Running';
+      polling = $interval(pollData, config.dataSource.pollInterval * 1000);
+      config.dataSource.status = 'running';
     };
 
     $scope.stop = function() {
       $interval.cancel(polling);
-      $scope.pollingStatus = 'Stopped';
+      config.dataSource.status = 'stopped';
     };
 
   });

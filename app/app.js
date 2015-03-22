@@ -1,11 +1,15 @@
 "use strict";
 
 angular.module('golive', [])
-  .constant('glConstants', {
-    pollInterval: 30000,
-    scroll: {
+  .value('config', {
+    dataSource: {
+      url: '/lastresults.json',
+      pollInterval: 30,
+      status: 'stopped'
+    },
+    scrolling: {
       step: 100,
-      interval: 5000,
-      animation: 500
+      interval: 5,
+      animation: 0.5
     }
   });

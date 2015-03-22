@@ -1,5 +1,5 @@
 angular.module('golive')
-  .directive('glAutoScroll', function($timeout, $interval, glConstants) {
+  .directive('glAutoScroll', function($timeout, $interval, config) {
     return {
       restrict: 'A',
       scope: {
@@ -13,12 +13,12 @@ angular.module('golive')
               scrollHeight = element[0].scrollHeight,
               clientHeight = element[0].clientHeight,
               atEnd = scrollTop + clientHeight >= scrollHeight,
-              newScrollTop = atEnd ? 0 : scrollTop + glConstants.scroll.step;
+              newScrollTop = atEnd ? 0 : scrollTop + config.scrolling.step;
 
             $(element).animate({
               scrollTop: newScrollTop
-            }, glConstants.scroll.animation);
-          }, glConstants.scroll.interval);
+            }, config.scrolling.animation * 1000);
+          }, config.scrolling.interval * 1000);
         }, scope.delay * 250);
 
         scope.$on('$destroy', function() {
