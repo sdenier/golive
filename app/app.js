@@ -10,9 +10,9 @@ angular.module('golive', [])
     scrolling: {
       step: 200,
       interval: 5,
-      animation: 0.5
+      animation: 1
     },
     columns: {
-      height: 650
+      height: 630
     }
   });

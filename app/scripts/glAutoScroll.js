@@ -19,7 +19,7 @@ angular.module('golive')
               scrollTop: newScrollTop
             }, config.scrolling.animation * 1000);
           }, config.scrolling.interval * 1000);
-        }, scope.delay * 250);
+        }, scope.delay * 750);
 
         scope.$on('$destroy', function() {
           if (scrolling) {
