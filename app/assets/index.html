@@ -16,6 +16,13 @@
       <button ng-click="start()">Start</button>
       <button ng-click="stop()">Stop</button>
       <span>{{ pollingStatus }}</span>
+      <span class="label"><i class="fi fi-widget"></i></span>
+      <span class="label secondary"><i class="fi fi-wrench"></i></span>
+      <span class="label success radius"><i class="fi fi-play"></i></span>
+      <span class="label alert round"><i class="fi fi-stop"></i></span>
+      <i class="fi fi-refresh"></i>
+      <i class="fi fi-x"></i>
+      <i class="fi fi-plus"></i>
     </header>
     <div ng-repeat="result in results track by result.name" class="result">
       <div class="result-info">
