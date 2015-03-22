@@ -47,7 +47,7 @@
             <hr>
             <div class="runners-unranked">
               <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="row collapse runner-unranked">
-                <div class="small-1 columns runner-rank">&nbsp;</div>
+                <div class="small-1 columns runner-rank">{{ runner.rank || '&nbsp;' }}</div>
                 <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
                 <div class="small-2 columns end runner-status">{{ runner.status }}</div>
               </div>

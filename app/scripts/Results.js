@@ -17,10 +17,17 @@ angular.module('golive')
         stage.lastTime = data.lastTime;
         stage.name = data.name;
         data.results.forEach(function(result) {
-          results[result.name] = result;
+          results[result.name] = transformResult(result);
         })
         dataSource.status = previousStatus;
       });
+    }
+
+    function transformResult(result) {
+      result.unrankedRunners.forEach(function(runner) {
+        runner.rank = runner.nc ? 'nc' : '';
+      });
+      return result;
     }
 
     return {
