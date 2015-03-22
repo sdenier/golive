@@ -9,6 +9,7 @@
   </head>
 
   <body ng-controller="MainCtrl" ng-cloak>
+
     <header class="row">
       <div class="small-5 columns collapse">
         <h4 class="subheader">{{ stageName }}</h4>
@@ -20,12 +21,13 @@
         <a ng-click="configHidden = !configHidden" class="label secondary"><i class="fi fi-widget"></i></a>
       </div>
     </header>
+
     <div class="row" ng-hide="configHidden">
       <div class="small-12 columns">
         <div class="panel config">
           <div class="row config-source"><!-- .config-source -->
             <div class="small-2 columns">
-              <label for="config-data-source" class="right inline">Source de données :</label>
+              <label for="config-data-source" class="right inline">Source :</label>
             </div>
             <div class="small-2 columns">
               <input id="config-data-source" ng-model="dataSource.url" type="text">
@@ -100,8 +102,7 @@
           </div><!-- .config-columns-headers -->
           <div class="row config-columns-1">
             <div class="small-2 columns">
-              <select>
-                <option>toto</option>
+              <select ng-model="col1" ng-options="result.name for result in results">
               </select>
             </div>
             <div class="small-2 columns">
@@ -131,7 +132,10 @@
             </div>
           </div><!-- .config-columns-1 -->
           <div class="row config-columns-2">
-            <div class="small-2 columns">
+            <div class="small-1 columns">
+              &nbsp;
+            </div>
+            <div class="small-1 columns">
               &nbsp;
             </div>
             <div class="small-2 columns">
@@ -161,28 +165,32 @@
             </div>
           </div><!-- .config-columns-2 -->
           <div class="row"></div>
-        </div>
+        </div><!-- .config -->
       </div>
     </div>
-    <div ng-repeat="result in results track by result.name" class="result">
-      <div class="result-info">
-        <div>{{ result.name }}</div>
-        <div>{{ result.finishCount }} / {{ result.presentCount }}</div>
-      </div>
-      <div class="result-results">
-        <div class="result-runners" gl-auto-scroll="$index">
-          <div class="runners-ranked">
-            <div ng-repeat="runner in result.rankedRunners track by runner.id" class="runner-ranked">
-              <span>{{ runner.rank }}</span>
-              <span>{{ runner.firstName }} {{ runner.lastName }}</span>
-              <span>{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</span>
+
+    <div class="row fullwidth">
+      <div ng-repeat="result in results track by result.name" class="small-2 columns result">
+        <div class="row result-info">
+          <h3 class="small-7 columns">{{ result.name }}</h3>
+          <h3 class="small-5 columns subheader text-right">{{ result.finishCount }} / {{ result.presentCount }}</h3>
+        </div>
+        <div class="result-results">
+          <div class="result-runners" gl-auto-scroll="$index">
+            <div class="runners-ranked">
+              <div ng-repeat="runner in result.rankedRunners track by runner.id" class="row runner-ranked">
+                <div class="small-1 columns runner-rank">{{ runner.rank }}</div>
+                <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
+                <div class="small-2 columns end runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</div>
+              </div>
             </div>
-          </div>
-          <hr>
-          <div class="runners-unranked">
-            <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="runner-unranked">
-              <span>{{ runner.firstName }} {{ runner.lastName }}</span>
-              <span>{{ runner.status }}</span>
+            <hr>
+            <div class="runners-unranked">
+              <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="row runner-unranked">
+                <div class="small-1 columns runner-rank">&nbsp;</div>
+                <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
+                <div class="small-2 columns end runner-status">{{ runner.status }}</div>
+              </div>
             </div>
           </div>
         </div>
