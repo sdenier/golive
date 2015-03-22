@@ -24,15 +24,15 @@
             <button ng-click="stop()">Stop</button>
             <span>{{ pollingStatus }}</span>
         </header>
-        <div ng-repeat="course in courses" class="course">
-            <div class="course-info">
-                <div>{{ course.name }}</div>
-                <div>{{ course.finishCount }} / {{ course.presentCount }}</div>
+        <div ng-repeat="result in results track by result.name" class="result">
+            <div class="result-info">
+                <div>{{ result.name }}</div>
+                <div>{{ result.finishCount }} / {{ result.presentCount }}</div>
             </div>
-            <div class="course-results">
-                <div class="course-runners" gl-auto-scroll="$index">
+            <div class="result-results">
+                <div class="result-runners" gl-auto-scroll="$index">
                     <div class="runners-ranked">
-                        <div ng-repeat="runner in course.rankedRunners track by runner.id" class="runner-ranked">
+                        <div ng-repeat="runner in result.rankedRunners track by runner.id" class="runner-ranked">
                             <span>{{ runner.rank }}</span>
                             <span>{{ runner.firstName }} {{ runner.lastName }}</span>
                             <span>{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</span>
@@ -40,7 +40,7 @@
                     </div>
                     <hr>
                     <div class="runners-unranked">
-                        <div ng-repeat="runner in course.unrankedRunners track by runner.id" class="runner-unranked">
+                        <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="runner-unranked">
                             <span>{{ runner.firstName }} {{ runner.lastName }}</span>
                             <span>{{ runner.status }}</span>
                         </div>

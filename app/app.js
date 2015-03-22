@@ -20,7 +20,7 @@ var App = {
           console.log('new results');
           $scope.lastTime = data.lastTime;
           $scope.stageName = data.name;
-          $scope.courses = data.results;
+          $scope.results = data.results;
           $scope.pollingStatus = previousStatus;
         });
       }
@@ -51,8 +51,9 @@ var App = {
           delay: '=glAutoScroll'
         },
         link: function(scope, element) {
+          var scrolling;
           $timeout(function() {
-            var scrolling = $interval(function() {
+            scrolling = $interval(function() {
               var scrollTop = element[0].scrollTop,
                   scrollHeight = element[0].scrollHeight,
                   clientHeight = element[0].clientHeight,
@@ -63,10 +64,12 @@ var App = {
                 scrollTop: newScrollTop
               }, glConstants.scroll.animation);
             }, glConstants.scroll.interval);            
-          }, scope.delay * 1000);
+          }, scope.delay * 250);
 
           scope.$on('$destroy', function() {
-            $interval.cancel(scrolling);
+            if (scrolling) {
+              $interval.cancel(scrolling); 
+            }
           });
         }
       };

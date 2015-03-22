@@ -14,6 +14,7 @@ Small Angular app for non-interactive display of live results:
 - configuration (columns, automatic number of columns?)
 - automatic detection of new/recent results + highlight
 - special headup component with only new/recent results
+- only check/refresh after scroll end?
 - don't poll/refresh results unless all columns have at least one full pass
 - plugins Brunch (minifier...)
 
