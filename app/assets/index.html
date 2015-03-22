@@ -133,10 +133,10 @@
           </div><!-- .config-columns-1 -->
           <div class="row config-columns-2">
             <div class="small-1 columns">
-              &nbsp;
+              <label for="config-column-height" class="right inline">Hauteur</label>
             </div>
             <div class="small-1 columns">
-              &nbsp;
+              <input id="config-column-height" ng-model="columns.height" type="number">
             </div>
             <div class="small-2 columns">
               <select>
@@ -175,10 +175,10 @@
           <h3 class="small-7 columns">{{ result.name }}</h3>
           <h3 class="small-5 columns subheader text-right">{{ result.finishCount }} / {{ result.presentCount }}</h3>
         </div>
-        <div class="result-results">
+        <div class="result-results" ng-style="{height: columns.height + 'px'}">
           <div class="result-runners" gl-auto-scroll="$index">
             <div class="runners-ranked">
-              <div ng-repeat="runner in result.rankedRunners track by runner.id" class="row runner-ranked">
+              <div ng-repeat="runner in result.rankedRunners track by runner.id" class="row collapse runner-ranked">
                 <div class="small-1 columns runner-rank">{{ runner.rank }}</div>
                 <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
                 <div class="small-2 columns end runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</div>
@@ -186,7 +186,7 @@
             </div>
             <hr>
             <div class="runners-unranked">
-              <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="row runner-unranked">
+              <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="row collapse runner-unranked">
                 <div class="small-1 columns runner-rank">&nbsp;</div>
                 <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
                 <div class="small-2 columns end runner-status">{{ runner.status }}</div>

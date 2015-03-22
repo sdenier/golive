@@ -3,6 +3,7 @@ angular.module('golive')
 
     $scope.dataSource = config.dataSource;
     $scope.scrolling = config.scrolling;
+    $scope.columns = config.columns;
 
     function pollData() {
       var previousStatus = config.dataSource.status;

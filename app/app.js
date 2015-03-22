@@ -8,8 +8,11 @@ angular.module('golive', [])
       status: 'stopped'
     },
     scrolling: {
-      step: 100,
+      step: 200,
       interval: 5,
       animation: 0.5
+    },
+    columns: {
+      height: 650
     }
   });
