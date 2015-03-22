@@ -49,93 +49,19 @@
         <input id="config-scroll-animation" ng-model="scrolling.animation" type="number">
       </div>
       <div class="small-1 columns">
-        <label for="config-banner-enabled" class="right inline">Bandeau</label>
-      </div>
-      <div class="small-1 columns">
-        <input id="config-banner-enabled" type="checkbox" disabled>
-      </div>
-    </div><!-- .config-scrolling -->
-    <div class="row config-columns-headers"><!-- .config-columns-headers -->
-      <div class="small-2 columns">
-        <label class="text-center">Col 1</label>
-      </div>
-      <div class="small-2 columns">
-        <label class="text-center">Col 2</label>
-      </div>
-      <div class="small-2 columns">
-        <label class="text-center">Col 3</label>
-      </div>
-      <div class="small-2 columns">
-        <label class="text-center">Col 4</label>
-      </div>
-      <div class="small-2 columns">
-        <label class="text-center">Col 5</label>
-      </div>
-      <div class="small-2 columns">
-        <label class="text-center">Col 6</label>
-      </div>
-    </div><!-- .config-columns-headers -->
-    <div class="row config-columns-1">
-      <div class="small-2 columns">
-        <select ng-model="columnResults[0]" ng-options="result.name for result in results track by result.name"></select>
-      </div>
-      <div class="small-2 columns">
-        <select ng-model="columnResults[1]" ng-options="result.name for result in results track by result.name"></select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-    </div><!-- .config-columns-1 -->
-    <div class="row config-columns-2">
-      <div class="small-1 columns">
         <label for="config-column-height" class="right inline">Hauteur</label>
       </div>
-      <div class="small-1 columns">
+      <div class="small-1 columns end">
         <input id="config-column-height" ng-model="columns.height" type="number">
       </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
+    </div><!-- .config-scrolling -->
+    <div class="row config-columns">
+      <div class="small-3 columns" ng-repeat="r in results" ng-class="{end: $last}">
+        <select ng-model="columnResults[$index]" ng-options="result.name for result in results track by result.name">
+          <option value="">---</option>
         </select>
       </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-      <div class="small-2 columns">
-        <select>
-          <option>toto</option>
-        </select>
-      </div>
-    </div><!-- .config-columns-2 -->
-    <div class="row"></div>
+    </div><!-- .config-columns -->
+    <!-- <div class="row"></div> -->
   </div>
 </div>  <!-- .config -->

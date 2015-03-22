@@ -10,8 +10,7 @@ Small Angular app for non-interactive display of live results:
 
 **GoLive**
 
-- multiple column display with foundation
-- configuration (columns, automatic number of columns?)
+- configuration (columns, layout ?, automatic number of columns?)
 - automatic detection of new/recent results + highlight
 - special headup component with only new/recent results
 - only check/refresh after scroll end?
