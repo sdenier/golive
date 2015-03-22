@@ -15,6 +15,9 @@ module.exports = {
         joinTo: {
           'app.css': /^app/, 
           'vendor.css': /^vendor/
+        },
+        order: {
+          before: ['vendor/styles/normalize.css']
         }
       }
     },
