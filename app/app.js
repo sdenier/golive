@@ -3,8 +3,8 @@
 angular.module('golive', [])
   .value('config', {
     scrolling: {
-      step: 200,
-      interval: 5,
+      step: 400,
+      interval: 10,
       animation: 1
     },
     columns: {
