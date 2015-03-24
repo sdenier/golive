@@ -17,13 +17,19 @@ angular.module('golive')
         stage.lastTime = data.lastTime;
         stage.name = data.name;
         data.results.forEach(function(result) {
-          results[result.name] = transformResult(result);
+          results[result.name] = transformResult(result, data.lastTime);
         })
         dataSource.status = previousStatus;
       });
     }
 
-    function transformResult(result) {
+    function transformResult(result, lastTime) {
+      var latestTime = lastTime - 60000;
+      var recentTime = lastTime - 5 * 60000;
+      result.rankedRunners.concat(result.unrankedRunners).forEach(function(runner) {
+        runner.isLatest = runner.readTime >= latestTime && runner.readTime;
+        runner.isRecent = runner.readTime >= recentTime && runner.readTime < latestTime;        
+      });
       result.unrankedRunners.forEach(function(runner) {
         runner.rank = runner.nc ? 'nc' : '';
       });
