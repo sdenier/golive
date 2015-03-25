@@ -1,5 +1,5 @@
 angular.module('golive')
-  .controller('MainCtrl', function($scope, Results, config, dataSource) {
+  .controller('MainCtrl', function($scope, Results, config) {
 
     // Main view
     $scope.stage = Results.stage;
@@ -9,30 +9,11 @@ angular.module('golive')
       }));
     };
 
-    // Config
-    $scope.scrolling = config.scrolling;
     $scope.columns = config.columns;
-    $scope.dataSource = dataSource;
-    $scope.columnSelectors = [];
 
+    $scope.columnSelectors = [];
     Results.refresh().then(function() {
       $scope.columnSelectors = Results.names();
     });
-
-    $scope.resultNames = function() {
-      return Results.names();
-    };
-
-    $scope.refresh = function() {
-      Results.refresh();
-    };
-
-    $scope.start = function() {
-      Results.startPolling();
-    };
-
-    $scope.stop = function() {
-      Results.stopPolling();
-    };
 
   });
