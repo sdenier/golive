@@ -1,9 +1,12 @@
 angular.module('golive')
-  .controller('ConfigCtrl', function($scope, Results, config, dataSource) {
+  .controller('ConfigCtrl', function($scope, Results, config, dataSource, layouts) {
 
     $scope.scrolling = config.scrolling;
     $scope.columns = config.columns;
     $scope.dataSource = dataSource;
+
+    $scope.layouts = layouts;
+    $scope.columns.layout = _.first(layouts);
 
     $scope.resultNames = function() {
       return Results.names();

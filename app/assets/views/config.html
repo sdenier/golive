@@ -2,19 +2,19 @@
   <div class="small-12 columns panel">
     <div class="row config-source"><!-- .config-source -->
       <div class="small-2 columns">
-        <label for="config-data-source" class="right inline">Source :</label>
+        <label for="config-data-source" class="right inline">Source</label>
       </div>
       <div class="small-2 columns">
         <input id="config-data-source" ng-model="dataSource.url" type="text">
       </div>
       <div class="small-2 columns">
-        <label for="config-data-poll" class="right inline">Rechargement :</label>
+        <label for="config-data-poll" class="right inline">Rechargement</label>
       </div>
       <div class="small-1 columns">
         <input id="config-data-poll" ng-model="dataSource.pollInterval" type="number">
       </div>
       <div class="small-2 columns">
-        <label class="right inline">Status : {{ dataSource.status }}</label>
+        <label class="right inline">Status {{ dataSource.status }}</label>
       </div>
       <div class="small-3 columns">
         <div class="row">
@@ -30,29 +30,31 @@
     </div><!-- .config-source -->
     <div class="row config-scrolling"><!-- .config-scrolling -->
       <div class="small-2 columns">
-        <label for="config-scroll-interval" class="right inline">Scrolling auto :</label>
-      </div>
-      <div class="small-1 columns">
-        <input id="config-scroll-interval" ng-model="scrolling.interval" type="number" disabled>
-      </div>
-      <div class="small-1 columns">&nbsp;</div>
-      <div class="small-2 columns">
-        <label for="config-scroll-step" class="right inline">Scrolling step :</label>
-      </div>
-      <div class="small-1 columns">
-        <input id="config-scroll-step" ng-model="scrolling.step" type="number">
+        <label for="config-column-layout" class="right inline">Layout</label>
       </div>
       <div class="small-2 columns">
-        <label for="config-scroll-animation" class="right inline">Animation :</label>
-      </div>
-      <div class="small-1 columns">
-        <input id="config-scroll-animation" ng-model="scrolling.animation" type="number">
-      </div>
+        <select id="config-column-layout" ng-model="columns.layout" ng-options="layout.name for layout in layouts"></select>
+      </div>      
       <div class="small-1 columns">
         <label for="config-column-height" class="right inline">Hauteur</label>
       </div>
       <div class="small-1 columns end">
         <input id="config-column-height" ng-model="columns.height" type="number">
+      </div>
+      <div class="small-2 columns">
+        <label for="config-scroll-interval" class="right inline">Scrolling speed</label>
+      </div>
+      <div class="small-1 columns">
+        <input id="config-scroll-interval" ng-model="scrolling.interval" type="number" disabled>
+      </div>
+      <div class="small-1 columns">
+        <input id="config-scroll-step" ng-model="scrolling.step" type="number">
+      </div>
+      <div class="small-1 columns">
+        <label for="config-scroll-animation" class="right inline">Animation</label>
+      </div>
+      <div class="small-1 columns">
+        <input id="config-scroll-animation" ng-model="scrolling.animation" type="number">
       </div>
     </div><!-- .config-scrolling -->
     <div class="row config-columns">
