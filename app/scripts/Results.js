@@ -8,18 +8,20 @@ angular.module('golive')
 
     var stage = {},
         results = {};
-    var polling;
+    var previousStatus = dataSource.status,
+        polling;
 
     function pollData() {
-      var previousStatus = dataSource.status;
       dataSource.status = 'polling';
       return $http.get(dataSource.url).success(function(data) {
         stage.lastTime = data.lastTime;
         stage.name = data.name;
         data.results.forEach(function(result) {
           results[result.name] = transformResult(result, data.lastTime);
-        })
+        });
         dataSource.status = previousStatus;
+      }).error(function() {
+        dataSource.status = 'error';
       });
     }
 
@@ -51,13 +53,13 @@ angular.module('golive')
       startPolling: function() {
         if (!polling) {
           polling = $interval(pollData, dataSource.pollInterval * 1000);
-          dataSource.status = 'running';          
+          dataSource.status = previousStatus = 'running';
         }
       },
       stopPolling: function() {
         if (polling) {
           $interval.cancel(polling);
-          dataSource.status = 'stopped';
+          dataSource.status = previousStatus = 'stopped';
           polling = undefined;
         }
       }
