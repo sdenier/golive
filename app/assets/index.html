@@ -15,7 +15,7 @@
         <h3 class="subheader">{{ stage.name }}</h3>
       </div>
       <div class="small-5 columns">
-        <h3>Résultats {{ stage.lastTime | date:'H:mm:ss' }}</h3>
+        <h3>Résultats {{ stage.lastTime | date:'H:mm:ss':'UTC' }}</h3>
       </div>
       <div class="small-1 columns">
         <a ng-click="configHidden = !configHidden" class="label" ng-class="{running: 'success', stopped: 'secondary', error: 'alert'}[dataSource.status]"><i class="fi fi-widget"></i></a>
