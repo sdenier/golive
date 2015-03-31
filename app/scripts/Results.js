@@ -1,6 +1,6 @@
 angular.module('golive')
   .value('dataSource', {
-    url: '/lastresults.json',
+    url: '/json/lastresults',
     pollInterval: 30,
     status: 'stopped'
   })
