@@ -10,8 +10,9 @@ Small Angular app for non-interactive display of live results:
 
 **GoLive**
 
+- banner with only new/recent results
 - layout for 7 courses (1 Long, 6 Shorts)
-- special headup component with only new/recent results
+- configurable font size?
 - only check/refresh after scroll end?
 - don't poll/refresh results unless all columns have at least one full pass
 - plugins Brunch (minifier...)
