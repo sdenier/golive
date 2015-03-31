@@ -5,7 +5,7 @@ angular.module('golive')
     $scope.stage = Results.stage;
     $scope.columnResults = function() {
       return _.compact($scope.columnSelectors.map(function(selector) {
-        return Results.results[selector];
+        return Results.resultsFor(selector);
       }));
     };
 

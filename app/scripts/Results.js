@@ -38,11 +38,14 @@ angular.module('golive')
 
     return {
       stage: stage,
-      results: results,
+      resultsFor: function(name) {
+        return results[name];
+      },
       names: function() {
         return _.pluck(results, 'name');
       },
       refresh: function() {
+        results = {}; // reset previous results
         return pollData();
       },
       startPolling: function() {
