@@ -17,7 +17,13 @@ exports.startServer = function startServer(port, path, callback) {
   var apiUrl = 'http://169.254.94.120:4567/json/lastresults';
   // var apiUrl = 'http://localhost:4567/json/lastresults';
   app.use('/lastresults', function(req, res) {
-    req.pipe(request(apiUrl)).pipe(res);
+    req.pipe(request(apiUrl, function(error, response, body){
+      if (error.code === 'ECONNREFUSED') {
+        res.status(502).send({ error: 'Connection refused: live results unavailable' });
+      } else { 
+        throw error; 
+      }
+    })).pipe(res);
   });
 
   server.listen(port, callback);
