@@ -16,7 +16,7 @@
       <div class="small-2 columns">
         <label class="right inline">Status {{ dataSource.status }}</label>
       </div>
-      <div class="small-3 columns">
+      <div class="small-2 columns">
         <div class="row">
           <div class="small-12 columns">
             <a ng-click="start()" class="label success radius"><i class="fi fi-play"></i></a>
@@ -26,6 +26,10 @@
             <a ng-click="refresh()" class="label radius"><i class="fi fi-refresh"></i></a>
           </div>
         </div>
+      </div>
+      <div class="small-1 columns">
+        <label for="config-recent-banner">Recent</label>
+        <input id="config-recent-banner" ng-model="banner.active" type="checkbox">
       </div>
     </div><!-- .config-source -->
     <div class="row config-scrolling"><!-- .config-scrolling -->

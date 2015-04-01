@@ -3,6 +3,7 @@ angular.module('golive')
 
     $scope.scrolling = config.scrolling;
     $scope.columns = config.columns;
+    $scope.banner = config.banner;
     $scope.dataSource = dataSource;
 
     $scope.layouts = layouts;

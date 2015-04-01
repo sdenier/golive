@@ -12,6 +12,13 @@
    max-width: initial;
 }
 
+.eightywidth {
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
 i.fi {
   font-size: 2em;
 }
@@ -30,10 +37,13 @@ i.fi {
   }
 }
 
-.result-results {
-  height: 500px;
+.result-results, .recent-banner {
   border: 1px solid lightgray;
   font-size: 2em;
+}
+
+.result-results {
+  height: 500px;
 
   .result-runners {
     height: 100%;
@@ -41,7 +51,7 @@ i.fi {
   }
 }
 
-.runner-ranked, .runner-unranked {
+.runner-ranked, .runner-unranked, .runner-recent {
   &.latest {
     background-color: #f78181;
   }

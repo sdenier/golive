@@ -12,10 +12,13 @@ angular.module('golive')
     };
 
     $scope.columns = config.columns;
+    $scope.banner = config.banner;
 
     $scope.columnSelectors = [];
     Results.refresh().then(function() {
       $scope.columnSelectors = Results.names();
     });
+
+    $scope.recentRunners = _.partial(Results.recentRunners);
 
   });

@@ -62,6 +62,18 @@ angular.module('golive')
           dataSource.status = previousStatus = 'stopped';
           polling = undefined;
         }
+      },
+      recentRunners: function() {
+        var allRecentRunners = _.flatten(_.map(results, function(res) {
+          var allResultRunners = res.rankedRunners.concat(res.unrankedRunners);
+          var recentRunners = allResultRunners.filter(function(runner) {
+            return runner.isLatest || runner.isRecent;
+          });
+          return _.each(recentRunners, function(runner) {
+            _.extend(runner, { resultName: res.name });
+          });
+        }));
+        return _(allRecentRunners).sortBy('readTime').last(9).reverse().value();
       }
     }
 

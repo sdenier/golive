@@ -29,6 +29,21 @@
       <ng-include src="'views/config.html'"></ng-include>
     </div>
 
+    <div class="eightywidth recent-banner" ng-if="banner.active">
+      Dernières arrivées
+      <div class="row fullwidth">
+        <div ng-repeat="runner in recentRunners() track by runner.id" class="small-4 columns" ng-class="{end: $last}">
+          <div class="row collapse runner-recent" ng-class="{latest: runner.isLatest, recent: runner.isRecent}">
+            <div class="small-1 columns runner-rank">{{ runner.rank || runner.status }}</div>
+            <div class="small-6 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
+            <div class="small-2 columns">{{ runner.resultName }}</div>
+            <!-- <div class="small-2 columns">{{ runner.readTime  | date:'H:mm:ss':'UTC' }}</div> -->
+            <div class="small-2 columns runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <ng-include src="columns.layout.url"></ng-include>
 
     <script src="vendor.js"></script>

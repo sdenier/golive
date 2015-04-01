@@ -9,6 +9,9 @@ angular.module('golive', [])
     },
     columns: {
       height: 630
+    },
+    banner: {
+      active: true
     }
   })
   .value('layouts', [{
