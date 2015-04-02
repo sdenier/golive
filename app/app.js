@@ -18,8 +18,8 @@ angular.module('golive', [])
     name: '2 + 4 columns',
     url: 'views/columns2-4.html'
   }, {
-    name: '2 + 8 columns',
-    url: 'views/columns2-8.html'
+    name: '1 + 6 columns',
+    url: 'views/columns1-6.html'
   }, {
     name: '4 columns',
     url: 'views/columns4.html'
