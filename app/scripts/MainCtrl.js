@@ -5,10 +5,11 @@ angular.module('golive')
     $scope.stage = Results.stage;
     $scope.dataSource = dataSource;
 
-    $scope.columnResults = function() {
-      return _.compact($scope.columnSelectors.map(function(selector) {
+    $scope.columnResults = function(begin, end) {
+      var results = _.compact($scope.columnSelectors.map(function(selector) {
         return Results.resultsFor(selector);
       }));
+      return results.slice(begin, end);
     };
 
     $scope.columns = config.columns;
