@@ -1,27 +1,8 @@
 <div class="row fullwidth">
   <div ng-repeat="result in columnResults() track by result.name" class="small-3 columns result" ng-class="{end: $last}">
-    <div class="row result-info">
-      <h2 class="small-7 columns">{{ result.name }}</h2>
-      <h2 class="small-5 columns subheader text-right">{{ result.finishCount }} / {{ result.presentCount }}</h2>
-    </div>
+    <ng-include src="'views/result-header.html'"></ng-include>
     <div class="result-results" ng-style="{height: columns.height + 'px'}">
-      <div class="result-runners" gl-auto-scroll="$index">
-        <div class="runners-ranked">
-          <div ng-repeat="runner in result.rankedRunners track by runner.id" class="row collapse runner-ranked" ng-class="{latest: runner.isLatest, recent: runner.isRecent}">
-            <div class="small-1 columns runner-rank">{{ runner.rank }}</div>
-            <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
-            <div class="small-2 columns end runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</div>
-          </div>
-        </div>
-        <hr>
-        <div class="runners-unranked">
-          <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="row collapse runner-unranked" ng-class="{latest: runner.isLatest, recent: runner.isRecent}">
-            <div class="small-1 columns runner-rank">{{ runner.rank || '&nbsp;' }}</div>
-            <div class="small-8 columns runner-name">{{ runner.firstName }} {{ runner.lastName }}</div>
-            <div class="small-2 columns end runner-status">{{ runner.status }}</div>
-          </div>
-        </div>
-      </div>
+      <ng-include src="'views/result-runners.html'"></ng-include>
     </div>
   </div>
 </div>
