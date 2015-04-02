@@ -6,19 +6,30 @@ Small Angular app for non-interactive display of live results:
 - display each course/set in a column
 - autoscroll each column so that all data have a chance to show
 
+## Setup & Run
+
+Typical setup:
+
+- PC for ecard reading / Server with results API `http://liveserver:4567/json/lastresults` (see server.js)
+- PC/Server running GoLive - request results from above API
+- Clients driving animation screen - request GoLive app
+
+GoLive needs a node.js installation. Commands to run:
+
+    npm install && bower install
+    npm start
+
+Open app at `http://localhost:3333`. App is customizable online.
+
 ### Todos
 
 **GoLive**
 
-- error handling for proxy
-- layout for 7 courses (1 Long, 6 Shorts) --> parameterized columnResults
 - configurable font size?
-- only check/refresh after scroll end?
-- don't poll/refresh results unless all columns have at least one full pass
 - plugins Brunch (minifier...)
-
+- save options in local storage
 
 **Geco**
 
-- replace with a Spark server (customize port?)
+- customize Spark server (port, route ?)
 - deprecate current gecolive
