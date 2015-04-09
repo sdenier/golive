@@ -6,6 +6,8 @@ Small Angular app for non-interactive display of live results:
 - display each course/set in a column
 - autoscroll each column so that all data have a chance to show
 
+<img src="data/Screenshot.png">
+
 ## Setup & Run
 
 Typical setup:
