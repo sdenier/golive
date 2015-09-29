@@ -21,6 +21,9 @@ angular.module('golive', [])
     name: '1 + 6 columns',
     url: 'views/columns1-6.html'
   }, {
+    name: '3 columns',
+    url: 'views/columns3.html'
+  }, {
     name: '4 columns',
     url: 'views/columns4.html'
   }, {
