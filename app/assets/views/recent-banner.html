@@ -2,8 +2,8 @@
   <div ng-repeat="runner in recentRunners() track by runner.id" class="small-4 columns" ng-class="{end: $last}">
     <div class="row collapse runner-recent" ng-class="{latest: runner.isLatest, recent: runner.isRecent}">
       <div class="small-1 columns runner-rank">{{ runner.rank || runner.status }}</div>
-      <div class="small-6 columns runner-name text-ellipsis">{{ runner.firstName }} {{ runner.lastName }}</div>
-      <div class="small-2 columns text-ellipsis">{{ runner.resultName }}</div>
+      <div class="small-8 columns runner-name text-ellipsis"><small>{{ runner.id }}</small> {{ runner.club }}</div>
+      <div class="small-1 columns text-ellipsis"><small>{{ runner.category }}</small></div>
       <!-- <div class="small-2 columns">{{ runner.readTime  | date:'H:mm:ss':'UTC' }}</div> -->
       <div class="small-2 columns runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</div>
     </div>

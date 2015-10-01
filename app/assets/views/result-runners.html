@@ -2,16 +2,19 @@
   <div class="runners-ranked">
     <div ng-repeat="runner in result.rankedRunners track by runner.id" class="row collapse runner-ranked" ng-class="{latest: runner.isLatest, recent: runner.isRecent}">
       <div class="small-1 columns runner-rank">{{ runner.rank }}</div>
-      <div class="small-8 columns runner-name text-ellipsis">{{ runner.firstName }} {{ runner.lastName }}</div>
-      <div class="small-2 columns end runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }}</div>
+      <!-- <div class="small-7 columns runner-name text-ellipsis">{{ runner.firstName }} {{ runner.lastName }}</div> -->
+      <div class="small-7 columns runner-name text-ellipsis"><small>{{ runner.id }}</small> {{ runner.club }}</div>
+      <div class="small-1 columns runner-cat text-ellipsis"><small>{{ runner.category }}</small></div>
+      <div class="small-3 columns runner-time">{{ runner.finishTime | date:'H:mm:ss':'UTC' }} <small>{{ runner.totalPenalties | date:'H\'h\'mm\'m\'ss':'UTC' }}</small></div>
     </div>
   </div>
   <hr>
   <div class="runners-unranked">
     <div ng-repeat="runner in result.unrankedRunners track by runner.id" class="row collapse runner-unranked" ng-class="{latest: runner.isLatest, recent: runner.isRecent}">
       <div class="small-1 columns runner-rank">{{ runner.rank || '&nbsp;' }}</div>
-      <div class="small-8 columns runner-name text-ellipsis">{{ runner.firstName }} {{ runner.lastName }}</div>
-      <div class="small-2 columns end runner-status">{{ runner.status }}</div>
+      <div class="small-7 columns runner-name text-ellipsis"><small>{{ runner.id }}</small> {{ runner.club }}</div>
+      <div class="small-1 columns runner-cat text-ellipsis"><small>{{ runner.category }}</small></div>
+      <div class="small-3 columns end runner-status">{{ runner.status }}</div>
     </div>
   </div>
 </div>
