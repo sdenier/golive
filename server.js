@@ -10,7 +10,10 @@ var cache = require('memory-cache');
 var retention = 29000; // retention time for cache
 var localhost = 'localhost',
     pc1 = '169.254.94.120',
-    liveserver = pc1;
+    pc2 = '169.254.182.243',
+    pc3 = '169.254.92.208',
+    pc4 = '169.254.77.64',
+    liveserver = localhost;
 
 exports.startServer = function startServer(port, path, callback) {
   var app = express();
