@@ -30,7 +30,9 @@ angular.module('golive')
       var recentTime = lastTime - 5 * 60000;
       result.rankedRunners.concat(result.unrankedRunners).forEach(function(runner) {
         runner.isLatest = runner.readTime >= latestTime && runner.readTime;
-        runner.isRecent = runner.readTime >= recentTime && runner.readTime < latestTime;        
+        runner.isRecent = runner.readTime >= recentTime && runner.readTime < latestTime;
+        runner.shortCat = runner.category.split(' ').map(function(w) { return w[0] }).join();
+        runner.displayName = runner.id + " " + runner.club;
       });
       result.unrankedRunners.forEach(function(runner) {
         runner.rank = runner.nc ? 'nc' : '';

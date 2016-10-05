@@ -1,0 +1,8 @@
+<div class="row fullwidth">
+  <div ng-repeat="result in columnResults() track by result.name" class="small-4 columns result" ng-class="{end: $last}">
+    <ng-include src="'views/result-header.html'"></ng-include>
+    <div class="result-results" ng-style="{height: columns.height + 'px'}">
+      <ng-include src="'views/result-runners-roa.html'"></ng-include>
+    </div>
+  </div>
+</div>

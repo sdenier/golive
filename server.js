@@ -13,7 +13,7 @@ var localhost = 'localhost',
     pc2 = '169.254.182.243',
     pc3 = '169.254.92.208',
     pc4 = '169.254.77.64',
-    liveserver = localhost;
+    liveserver = pc4;
 
 exports.startServer = function startServer(port, path, callback) {
   var app = express();
@@ -37,7 +37,7 @@ exports.startServer = function startServer(port, path, callback) {
         } else {
           cache.put('lastresults', JSON.parse(response.body), retention);
         }
-      })).pipe(res);      
+      })).pipe(res);
     }
   });
 
